@@ -1,15 +1,8 @@
 import { Router } from "express";
+import { signin, signup } from "../controllers/auth.controller.js";
 const authRouter=Router();
-authRouter.post("/sign-up",(req,res)=>{
-    res.send({
-        message:"User created successfully",
-    })
-})
-authRouter.post("/sign-in",(req,res)=>{
-    res.send({
-        message:"User created successfully",
-    })
-})
+authRouter.post("/sign-up",signup)
+authRouter.post("/sign-in",signin)
 authRouter.post("/sign-out",(req,res)=>{
     res.send({
         message:"User created successfully",
