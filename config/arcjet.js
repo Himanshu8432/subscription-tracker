@@ -1,7 +1,5 @@
 import arcjet, { shield, detectBot, tokenBucket } from "@arcjet/node";
-import { ARCJET_KEY } from "./env";
-
-
+import { ARCJET_KEY } from "./env.js";
 const aj = arcjet({
   // Get your site key from https://app.arcjet.com and set it as an environment
   // variable rather than hard coding.
@@ -31,15 +29,5 @@ const aj = arcjet({
     }),
   ],
 });
-
-function isSpoofed(result) {
-  return (
-    // You probably don't want DRY_RUN rules resulting in a denial
-    // since they are generally used for evaluation purposes but you
-    // could log here.
-    result.state !== "DRY_RUN" &&
-    result.reason.isBot() &&
-    result.reason.isSpoofed()
-  );
-}
+export default aj
 
